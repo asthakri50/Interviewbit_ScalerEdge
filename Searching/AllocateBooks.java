@@ -43,7 +43,7 @@ public class Solution {
         }
         //When we can say that books has been allocated with minimum max_pages 
         if(num_students <= B)
-        return true ;
+            return true ;
         
         return false ;
     }
