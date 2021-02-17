@@ -12,7 +12,7 @@ public class Solution {
             else
                 p2--;
         }
-        count = count % ( (int)Math.pow(10,9) + 7);
+        count = count % 1000000007;
         return (int)count ;
     }
 }
