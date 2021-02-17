@@ -10,7 +10,7 @@ public class Solution {
                 p1++;
             }
             else
-            p2--;
+                p2--;
         }
         count = count % ( (int)Math.pow(10,9) + 7);
         return (int)count ;
