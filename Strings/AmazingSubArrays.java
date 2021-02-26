@@ -12,3 +12,4 @@ public class Solution {
     return count % 10003;    
     }
 }
+
