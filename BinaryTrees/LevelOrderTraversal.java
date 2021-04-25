@@ -54,41 +54,41 @@
  * right; TreeNode(int x) { val = x; left=null; right=null; } }
  */
 // Approach 1:-
-// public class Solution {
-// public ArrayList<ArrayList<Integer>> levelOrder(TreeNode A) {
+public class Solution {
+    public ArrayList<ArrayList<Integer>> levelOrder(TreeNode A) {
 
-// ArrayList<ArrayList<Integer>> ans = new ArrayList<ArrayList<Integer>>() ;
+        ArrayList<ArrayList<Integer>> ans = new ArrayList<ArrayList<Integer>>();
 
-// if(A == null)
-// return ans ;
-// Queue<TreeNode> q = new LinkedList<TreeNode>() ;
+        if (A == null)
+            return ans;
+        Queue<TreeNode> q = new LinkedList<TreeNode>();
 
-// q.add(A) ;
+        q.add(A);
 
-// while(true){
-// int nodeCount = q.size() ;
-// if(nodeCount == 0)
-// break ;
+        while (true) {
+            int nodeCount = q.size();
+            if (nodeCount == 0)
+                break;
 
-// ArrayList<Integer> list = new ArrayList<Integer>() ;
-// while(nodeCount > 0){
-// TreeNode node = q.peek() ;
-// list.add(node.val) ;
-// q.remove() ;
-// if(node.left != null)
-// q.add(node.left);
-// if(node.right != null)
-// q.add(node.right) ;
+            ArrayList<Integer> list = new ArrayList<Integer>();
+            while (nodeCount > 0) {
+                TreeNode node = q.peek();
+                list.add(node.val);
+                q.remove();
+                if (node.left != null)
+                    q.add(node.left);
+                if (node.right != null)
+                    q.add(node.right);
 
-// nodeCount -- ;
-// }
-// ans.add(list) ;
-// }
+                nodeCount--;
+            }
+            ans.add(list);
+        }
 
-// return ans ;
+        return ans;
 
-// }
-// }
+    }
+}
 
 // Approach 2:-
 public class Solution {
