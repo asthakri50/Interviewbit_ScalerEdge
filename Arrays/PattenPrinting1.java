@@ -11,21 +11,14 @@
 
 // 1 2 3
 
-
-
 // Problem Constraints
 // 1 <= A <= 1000
-
 
 // Input Format
 // First and only argument is an integer denoting A.
 
-
-
 // Output Format
 // Return a two-dimensional array where each row in the returned array represents a row in the pattern.
-
-
 
 // Example Input
 // Input 1:
@@ -34,7 +27,6 @@
 // Input 2:
 
 //  A = 4
-
 
 // Example Output
 // Output :1
@@ -53,11 +45,9 @@
 //    [1, 2, 3, 4]
 //  ]
 
-
 // Example Explanation
 // Explanation 2:
 
- 
 //  For A = 4 pattern looks like:  
 //                              1
 //                              1 2
@@ -65,3 +55,17 @@
 //                              1 2 3 4
 //  So we will return it as two-dimensional array.
 
+public class Solution {
+    public int[][] solve(int A) {
+        int[][] series = new int[A][];
+        for (int i = 0; i < A; i++) {
+            series[i] = new int[i + 1];
+            for (int j = 0; j <= i; j++) {
+                series[i][j] = j + 1;
+            }
+
+        }
+
+        return series;
+    }
+}
