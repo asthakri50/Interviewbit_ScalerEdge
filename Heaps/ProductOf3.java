@@ -53,6 +53,7 @@
 
 //  So, the output is [-1, -1, 260, 520].
 
+//Approach1:-
 public class Solution {
     public ArrayList<Integer> solve(ArrayList<Integer> A) {
         ArrayList<Integer> res = new ArrayList<Integer>();
@@ -88,5 +89,52 @@ public class Solution {
         }
 
         return res;
+    }
+}
+
+// Approach2:-
+public class Solution {
+    public int[] solve(int[] A) {
+        // n is the size of the vector
+        int n = A.length;
+        // Initialize an answer vector
+        ArrayList<Integer> ans = new ArrayList<Integer>();
+        // Initialize a priority queue // Max Heap
+        PriorityQueue<Integer> pq = new PriorityQueue(new CustomComp());
+
+        for (int i = 0; i < n; i++) {
+
+            // Add element in priority queue
+            pq.offer(A[i]);
+
+            // Append -1 to the answer as number of elements are < 3.
+            if (i < 2) {
+                ans.add(-1);
+            } else {
+                // take 3 maximum elements from queue.
+                int a = pq.poll();
+                int b = pq.poll();
+                int c = pq.poll();
+
+                // add all these numbers back to queue
+                pq.offer(a);
+                pq.offer(b);
+                pq.offer(c);
+
+                // append the product to answer
+                ans.add(a * b * c);
+            }
+        }
+        int[] res = new int[ans.size()];
+        for (int i = 0; i < ans.size(); i++)
+            res[i] = ans.get(i);
+        return res;
+    }
+}
+
+class CustomComp implements Comparator<Integer> {
+    @Override
+    public int compare(Integer a, Integer b) {
+        return b - a;
     }
 }
