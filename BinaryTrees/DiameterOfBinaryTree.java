@@ -69,3 +69,28 @@ public class Solution {
         return temp;
     }
 }
+
+// Approach2->
+
+/**
+ * Definition for binary tree class TreeNode { int val; TreeNode left; TreeNode
+ * right; TreeNode(int x) { val = x; left=null; right=null; } }
+ */
+public class Solution {
+    static int diameter;
+
+    public int solve(TreeNode A) {
+        diameter = 0;
+        height(A);
+        return diameter;
+    }
+
+    public static int height(TreeNode root) {
+        if (root == null)
+            return -1;
+        int leftHeight = height(root.left);
+        int rightHeight = height(root.right);
+        diameter = Math.max(diameter, 2 + leftHeight + rightHeight);
+        return 1 + Math.max(leftHeight, rightHeight);
+    }
+}
