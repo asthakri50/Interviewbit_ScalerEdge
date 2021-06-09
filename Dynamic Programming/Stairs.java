@@ -38,6 +38,7 @@
 
 //  Distinct ways to reach top: [1 1 1], [1 2], [2 1].
 
+//Approach 1-> Dp Memoisation Form
 public class Solution {
     int[] dp = new int[37];
 
@@ -59,5 +60,24 @@ public class Solution {
 
         return dp[A];
 
+    }
+}
+
+// Approach 2- > Dp Tabulation Form
+
+public class Solution {
+    public int climbStairs(int A) {
+        int ways[] = new int[A + 1];
+
+        if (A == 1)
+            return 1;
+
+        ways[1] = 1;
+        ways[2] = 2;
+
+        for (int i = 3; i <= A; i++) {
+            ways[i] = ways[i - 1] + ways[i - 2];
+        }
+        return ways[A];
     }
 }
